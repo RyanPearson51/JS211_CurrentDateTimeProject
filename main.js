@@ -56,6 +56,18 @@ const strToNum = () => {
       displayInput.innerHTML = 'other';
     }
   }
+
+  //could not get above to show up as anything other than a string in the DOM/form
+  //I'm not quite sure whether there is something wrong with my code here or with how I created the form.
+  //this shows the correct data type for the below 3 console.logs in the console
+  const getDataTypeConsole = (x) => {
+    const type = typeof x;
+    return type;
+  }
+
+  console.log(getDataTypeConsole(true));
+  console.log(getDataTypeConsole(51));
+  console.log(getDataTypeConsole('hello'));
   
 
   
@@ -67,35 +79,30 @@ document.getElementById("sum").innerHTML = num1 + num2;
 }
 
 //another function with the same outcome
-/*const sumOfTwoNumbers = (a,b) => {
+const sumOfTwoNumbersConsole = (a,b) => {
   return a + b;
 }
-*/
+console.log(sumOfTwoNumbersConsole(13,31)); //prints 44 to the console
 
 
 
 // Write a JavaScript program that runs only when 2 things are true.
-//-------------------------
-
-const truthTeller = (a,b) => {
-  if (a && b ){
-  console.log('Both are true');
-}
-}
-
-
 // Write a JavaScript program that runs when 1 of 2 things are true.
-const halfTruthTeller = (a,b) => {
-  if(a === 5 || b === 4){
-    console.log('One is true');
-  }
-}
-
-
 // Write a JavaScript program that runs when both things are not true.  
-const liar = (a,b) => {
-  if (a !== 5) || (b !== 4){
-    console.log('Both are false');
+const truthTeller = () => {
+  let c = Number(document.getElementById('inputA').value);
+  let d = Number(document.getElementById('inputB').value);
+  //Both true
+  if (c>0 && d>0){
+    document.getElementById('trueTest').innerHTML = ("Both Positive");
+  }
+  //One true
+  else if (c>0 || d>0){
+    document.getElementById('trueTest').innerHTML = ("One is Positive");
+  }
+  //else, aka neither true
+  else{
+    document.getElementById('trueTest').innerHTML = ("Neither Positive");
   }
 }
 
@@ -119,3 +126,30 @@ const liar = (a,b) => {
 // Video1: https://player.vimeo.com/video/377147232
 // Video2: https://www.youtube.com/embed/bkvH28PXLWc
 // Video3: https://www.youtube.com/embed/TrGI9Yki-24
+
+
+
+//practice question from class Thursday
+const letterGrade = (grade) => {
+  if (grade>=90 && grade<=100){
+    return "A"
+  } 
+  else if(grade>=80){
+    return "B"
+  }
+  else if(grade>=75){
+    return "C"
+  }
+  else if (grade>=70){
+    return "D"
+  }
+  else{
+    return "F"
+  }
+}
+
+console.log(letterGrade(98));
+console.log(letterGrade(88));
+console.log(letterGrade(78));
+console.log(letterGrade(73));
+console.log(letterGrade(48));
